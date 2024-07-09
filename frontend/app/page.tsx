@@ -1,8 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
+import CustomNavBar from '../components/LandingNavbar';
+import LandingPageComp from '../components/LandingMiddleCon';
+import CardCarouselComp from '../components/LandingCardCarouselComp';
 
-const Home: React.FC = () => {
+const LandingPage: React.FC = () => {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
@@ -13,9 +16,11 @@ const Home: React.FC = () => {
 
   return (
     <div>
-      <h1 className = "text-danger">{message}</h1>
+      <CustomNavBar />
+      <LandingPageComp/>
+      <CardCarouselComp />
     </div>
   );
 };
 
-export default Home;
+export default LandingPage;

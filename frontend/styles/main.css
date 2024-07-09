@@ -1,0 +1,128 @@
+
+
+body {
+    margin: 0;
+    font-family: 'Gotham';
+    background-color: white;
+    color: #333;
+}
+  
+* {
+    box-sizing: border-box;
+}
+
+.navbar-brand-custom {
+  font-size: 2.5rem;
+  font-weight: bold;
+    text-decoration: none;
+    
+}
+
+.navbar-brand-custom:hover {
+    text-decoration: none; 
+
+}
+.btn-custom {
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    margin-inline: 10px;
+}
+
+.btn-custom-signup{
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    margin-inline: 10px;
+}
+
+.btn-custom-signup:hover {
+    background-color: white;
+    color: blue;
+}
+
+.landing-container {
+  display: flex;
+  align-items: center;
+  height: 70vh;
+  margin-bottom: 10%;
+}
+
+.left-half {
+  margin-top: 5%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8%; 
+
+}
+
+.right-half {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px; 
+}
+
+.landing-image {
+  max-width: 100%;
+  height: 100%;
+  display: block;
+  margin-top: 10%;
+  
+}
+
+.big-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.small-text {
+  font-size: 1.10rem;
+  margin-bottom: 1rem;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.buttons-container {
+  display: flex;
+  margin-bottom: 1rem;
+  
+}
+
+.search_buttons{
+  border-radius: 0px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+
+.heading {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: semi-bold;
+  text-align: center;
+}
+
+.carousel-container {
+  margin: 2rem 0;
+  padding: 20px;
+
+}
+
+.card {
+  text-align: center;
+  padding: 1rem;
+  width: 50%;
+  border-radius: 0%;
+  border-color: rgb(147, 147, 229);
+}
