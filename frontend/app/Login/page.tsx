@@ -1,4 +1,5 @@
 // frontend/app/Login/page.tsx
+'use client'
 
 import React from 'react';
 import '../../styles/login.css'; // Adjust the path based on your folder structure
@@ -30,7 +31,7 @@ const Login: React.FC = () => {
           <button type="submit">Login</button>
           <div className="accountPrompt">
             <span>Don't have an account? </span>
-            <Link href="./Signup/page">
+            <Link href="/Signup">
               <div className="createAccountLink">Create new account</div>
             </Link>
           </div>
