@@ -9,18 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@bolt/components-carousel": "^5.8.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
     "next": "14.2.4",
+    "papaparse": "^5.4.1",
     "react": "^18",
     "react-bootstrap": "^2.10.4",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-multi-carousel": "^2.8.5"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/papaparse": "^5.3.14",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
