@@ -1,0 +1,153 @@
+/* styles/Login.module.css */
+
+/* frontend/styles/login.css */
+
+.background {
+  display: flex;
+  opacity: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('../images/DetailedLogo.png') no-repeat; /* Ensure no-repeat to prevent repetition */
+  background-position: 140% 60%; /* Example: Adjust position coordinates */
+  background-size: auto 150%; /* Adjust size to maintain aspect ratio and fill height */
+}
+
+.header {
+  position: absolute;
+  top: 100px;
+  left: 40px;
+  position: 200% 60%;
+  display: flex;
+}
+
+.logo {
+  position: absolute; /* Make the logo positionable */
+  top: 10px; /* Adjust top position as needed */
+  left: 10px; /* Adjust left position as needed */
+  right: 0px;
+  bottom: 0px;
+  height: 80px; /* Adjust size as needed */
+  margin-right: 10px;
+}
+
+.loginBox {
+  height: 420px;
+  width: 550px;
+  padding: 40px;
+  position: 140% 60%;
+  background: rgba(255, 255, 255, 1); /* cool grey with transparency */
+  text-align: center;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+/* Other styles for loginBox, inputBox, etc. */
+
+  
+  .loginBox h2 {
+    margin: 0 -300px 30px;
+    padding: 0;
+    font-family: 'Gotham';
+    color: #3281ff;
+  }
+  
+  
+  .inputBox {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  .inputBox input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 30px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  outline: none;
+  background: transparent;
+  box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
+}
+  
+  .inputBox label {
+    position: absolute;
+    top: -37px;
+    left: 0px;
+    font: "Gotham";
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  
+  .inputBox input:focus ~ label,
+  .inputBox input:valid ~ label {
+    font: "Avenir-bold";
+    top: -36px;
+    left: 0;
+    color: #112630;
+    font-size: 17px;
+  }
+  
+  button {
+    width: 180px;
+    height: 50px;
+    margin-top: -20px;
+    font-family: 'Gotham';
+    background: #03a9f4;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    transition: 0.5s;
+  }
+  
+  button:hover {
+    background: #05324a;
+    padding: 9px;
+  }
+
+  .homeButton {
+    position: absolute;
+    font-family: 'Gotham';
+    top: 25px;
+    left: 80px;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    background-color: #fff;
+    border: 0px solid #333;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .homeButton:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .accountPrompt {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .createAccountLink {
+    color: #03a9f4;
+    text-decoration: none;
+    margin-left: 5px;
+  }
+  
+  .createAccountLink:hover {
+    text-decoration: underline;
+    color: #0c5070;
+  }
