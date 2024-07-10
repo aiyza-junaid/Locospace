@@ -1,7 +1,8 @@
-const User = require('./models/userModel');
+const User = require('../models/userModel');
+const express = require('express');
+const router = express.Router();
 
-
-app.post('/users', async (req, res) => {
+router.post('/users', async (req, res) => {
     try {
       const newUser = await User.create(req.body);
       console.log('User created:', newUser);
@@ -12,4 +13,4 @@ app.post('/users', async (req, res) => {
     }
 });
 
-createUser(userData);
+module.exports = router;
