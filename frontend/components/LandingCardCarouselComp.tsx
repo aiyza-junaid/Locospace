@@ -1,50 +1,103 @@
-import React from 'react';
-import { Container, Row, Col, Carousel, Card, Button } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import Papa from 'papaparse';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import { Card, Button, Row, Col } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBed, faBath, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import '../styles/main.css';
 
+interface CSVData {
+  url: string;
+  title: string;
+  type: string;
+  price: number;
+  area: string;
+  city: string;
+  address: string;
+  bedrooms: string;
+  baths: string;
+}
+
+const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 3000 },
+    items: 3,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  }
+};
+
 const CardCarouselComp: React.FC = () => {
+  const [data, setData] = useState<CSVData[]>([]);
+
+  useEffect(() => {
+    fetch('/zameen.csv')
+      .then(response => response.text())
+      .then(csvText => {
+        Papa.parse<CSVData>(csvText, {
+          header: true,
+          complete: (results) => {
+            setData(results.data);
+          }
+        });
+      });
+  }, []);
+
+  console.log(data)
+
   return (
-    <Container fluid className="carousel-container">
+    <div className="carousel-wrapper">
       <h2 className="heading">Explore Available Listings</h2>
-      <Carousel id="carouselExampleIndicators" interval={3000}>
-        <Carousel.Item>
-          <Card className="d-block w-40 card-custom" style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="your-image-url-1.jpg" alt="Card image cap" />
+      <Carousel
+        responsive={responsive}
+        infinite={true}
+        autoPlay={true}
+        autoPlaySpeed={1000}
+        containerClass="carousel-container"
+        itemClass="carousel-item-padding-40-px"
+        showDots={false}
+        customLeftArrow={<></>}
+        customRightArrow={<></>}
+      >
+        {data.slice(0, 10).map((item, index) => (
+          <Card key={index} className="d-block card-custom">
+            <div className="image-wrapper">
+              <Card.Img variant="top" src='placeholder.png' alt={`Image of ${item.title}`} />
+            </div>
             <Card.Body>
-              <Card.Title>Card title 1</Card.Title>
-              <Card.Text>
-                lala
-              </Card.Text>
-              <Button variant="primary" href="#">Go somewhere</Button>
+              <Card.Title><Row className="mb-2">
+                <Col><span>{item.type}</span></Col>
+                <Col className="text-right"><span>Rs. {item.price}</span></Col>
+              </Row></Card.Title>
+              <Row className="mb-2">
+                <Col><FontAwesomeIcon icon={faBed} /> {item.bedrooms}</Col>
+                <Col className="text-right"><FontAwesomeIcon icon={faBath} /> {item.baths}</Col>
+              </Row>
+              <hr />
+              <Row className="mb-2">
+              <Col>
+                  <FontAwesomeIcon icon={faMapMarkerAlt} className="icon" />
+                  <span style={{ marginLeft: '0.5rem' }}>{item.address.split(',')[0]}</span>, {item.city}
+              </Col>
+                
+              </Row>
+              <Button variant="primary" href="#">View</Button>
             </Card.Body>
           </Card>
-        </Carousel.Item>
-        <Carousel.Item>
-          <Card className="d-block w-40 card-custom" style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="your-image-url-2.jpg" alt="Card image cap" />
-            <Card.Body>
-              <Card.Title>Card title 2</Card.Title>
-              <Card.Text>
-                alala
-              </Card.Text>
-              <Button variant="primary" href="#">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        </Carousel.Item>
-        <Carousel.Item>
-          <Card className="d-block w-40 card-custom" style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="your-image-url-3.jpg" alt="Card image cap" />
-            <Card.Body>
-              <Card.Title>Card title 3</Card.Title>
-              <Card.Text>
-                ahhh
-              </Card.Text>
-              <Button variant="primary" href="#">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        </Carousel.Item>
+        ))}
       </Carousel>
-    </Container>
+    </div>
   );
 };
 
