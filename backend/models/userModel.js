@@ -31,6 +31,12 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  lat: {
+    type: String
+  },
+  long: {
+    type: String
+  },
   profilePicture: {
     data: Buffer,
     contentType: String,
