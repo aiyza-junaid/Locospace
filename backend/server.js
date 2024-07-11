@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const UserRoute = require('./routes/userRoutes')
+const LoginRoute = require('./routes/loginRoutes')
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ if (mongoURI) {
 }
 
 app.use('/api', UserRoute);
+app.use('/api', LoginRoute)
 
 
 app.listen(port, () => {
