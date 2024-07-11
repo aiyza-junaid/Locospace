@@ -6,6 +6,9 @@ import React from 'react';
 import '../../styles/signup.css'; // Adjust the path based on your folder structure
 import Link from 'next/link'; // Import Link from Next.js for client-side navigation
 import Dropdown from '../../components/Dropdown'; // Corrected path
+import useAuth from '../../authStore';
+import {useRouter} from 'next/navigation';
+import { height } from '@fortawesome/free-brands-svg-icons/fa42Group';
 
 const Signup: React.FC = () => {
     const options = ["", 'Community 1', 'Community 2', 'Community 3'];
@@ -30,26 +33,26 @@ const Signup: React.FC = () => {
                 <form>
                     <div className="leftInputs">
                         <div className="inputBox">
-                            <input type="text" name="name" required />
-                            <label>Name</label>
+                            <input type="text" name="username" required />
+                            <label>Username</label>
                         </div>
                         <div className="inputBox">
                             <input type="password" name="password" required />
                             <label>Password</label>
                         </div>
                         <div className="inputBox">
-                            <Dropdown options={options} onSelect={handleCommunitySelect} />
-                            <label>Community</label>
+                            <input type="text" name="name" required />
+                            <label>Name</label>
                         </div>
-                        <div className="inputBox house">
-                            <input type="text" name="house_no" required />
-                            <label>House No.</label>
+                        <div className="inputBox">
+                            <input type="text" name="address" required style={{height:'60px', margin: '0px'}} />
+                            <label>Address</label>
                         </div>
                     </div>
 
                     <div className="rightInputs">
                         <div className="inputBox">
-                            <input type="text" name="email" required />
+                            <input type="email" name="email" required />
                             <label>Email</label>
                         </div>
                         <div className="inputBox">
@@ -57,21 +60,22 @@ const Signup: React.FC = () => {
                             <label>Confirm Password</label>
                         </div>
                         <div className="inputBox">
-                            <input type="text" name="city" required />
-                            <label>City</label>
+                            <input type="text" name="contact" required />
+                            <label>Contact</label>
                         </div>
-                        <div className="inputBox street">
-                            <input type="text" name="street_no" required />
-                            <label>Street No.</label>
+                        <div className="locationinputBox">
+                            <label>Location</label>
+                            <button> Locate on Map </button>
                         </div>
                     </div>
-
-                    <button type="submit">Sign up</button>
+                    <button type="submit" style={{margin:'0px'}}>Sign up</button>
                     <div className="accountPrompt">
-                        <span>Already have an account? </span>
-                        <Link href="/Login">
+                        <span>Already have an account? 
+                            <Link href="/Login">
                             <div className="createAccountLink">Sign in</div>
-                        </Link>
+                        </Link> 
+                        </span>
+                        
                     </div>
                 </form>
             </div>
