@@ -2,10 +2,12 @@ const User = require('../models/userModel');
 const express = require('express');
 const router = express.Router();
 const authenticateToken = require('../middlewares/tokenauthentication')
+const bcrypt = require("bcrypt") ;
 
 router.get('/myprofile', authenticateToken, async (req, res) => {
 
-    const id = req.body.id;
+    const id = req.user.id;
+
 
 try {
       const user = await User.findById(id);
@@ -36,12 +38,16 @@ try {
 });
 
 router.put('/edit', authenticateToken, async (req, res) => {
+ 
+    const id = req.user.id;
 
-    const { id } = req.body.id;
-    const {  password, name, email, address, profilePicture, contact } = req.body;
+    
+    //const {  password, name, email, address, profilePicture, contact } = req.body;
+    const {  password, name, email, address, contact } = req.body;
   
     try {
-      const updatedFields = { name, email, address, profilePicture, contact };
+      //const updatedFields = { name, email, address, profilePicture, contact };
+      const updatedFields = { name, email, address, contact };
   
       if (password) {
         updatedFields.password = await bcrypt.hash(password, 10);
