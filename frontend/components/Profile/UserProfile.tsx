@@ -11,15 +11,15 @@ const UserProfile: React.FC = () => {
       <div className="profile-details">
         <div className="detail-box">
           <label>Name:</label>
-          <p>John Doe</p>
+          <p>Osaed Jafar</p>
         </div>
         <div className="detail-box">
           <label>Email:</label>
-          <p>john.doe@example.com</p>
+          <p>broooooo@sup.com</p>
         </div>
         <div className="detail-box">
           <label>Address:</label>
-          <p>123 Main St, Cityville, Country</p>
+          <p>RAJA HOusSe Estate Tench Bhata</p>
         </div>
       </div>
     </div>

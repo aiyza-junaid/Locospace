@@ -1,5 +1,4 @@
 /* frontend/styles/signup.css */
-
 .background {
     display: flex;
     justify-content: center;
@@ -37,7 +36,6 @@
   .leftInputs {
     width: 45%; /* Adjusted width for left column */
     float: left; /* Ensures left alignment */
-    padding-right: 5%; /* Add some spacing between columns */
   }
   
   .rightInputs {
@@ -53,7 +51,7 @@
   
   .inputBox input {
     width: 100%;
-    height: 2rem    ;
+    height: 2rem;
     padding: 10px;
     font-size: 16px;
     color: #333;
@@ -98,23 +96,6 @@
   }
   /* frontend/components/Dropdown.module.css */
 
-.dropdown {
-    width: 100%;
-    height: 2rem    ;
-    padding: 10px;
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 10px; /* Adjusted for spacing */
-    border: 1px solid #333;
-    border-radius: 5px;
-    outline: none;
-    background: transparent;
-    box-sizing: border-box; 
-  }
-  
-  .dropdown:focus {
-    border-color: #03a9f4;
-  }
   
   button {
     width: 180px;
@@ -123,7 +104,7 @@
     font-family: 'Gotham';
     background: #03a9f4;
     border: none;
-    padding: 10px;
+    padding: 0px;
     cursor: pointer;
     border-radius: 5px;
     color: #fff;
@@ -157,22 +138,49 @@
   }
   
   .accountPrompt {
-    margin-top: 20px;
     font-size: 14px;
     color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
   }
   
   .createAccountLink {
     color: #03a9f4;
     text-decoration: none;
-    margin-left: 5px;
   }
   
   .createAccountLink:hover {
     text-decoration: underline;
     color: #0c5070;
   }
-  
+  .locationinputBox button{ 
+    width: 180px;
+    height: 50px;
+    color: black;
+    font: "Gotham";
+    font-size: medium;
+    box-sizing: border-box;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_rbrCDbss3kRmbeiZoslsXiTdENOYg9iXCA&s) ;
+  }
+  .locationinputBox button:hover{ 
+    background: grey;
+    padding: 9px;
+  }
+  .locationinputBox{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    padding-bottom: 24px;
+  }
+
+  .locationinputBox label{
+    position: absolute;
+    top: -37px;
+    left: 0px;
+    font: "Gotham";
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    pointer-events: none;
+    transition: 0.5s;
+  }
