@@ -2,6 +2,7 @@ const User = require('../models/userModel');
 const express = require('express');
 const jwt = require('jsonwebtoken'); 
 const router = express.Router();
+import bcrypt from "bcrypt";
 
 router.post('/login', async (req, res) => {
 
@@ -9,17 +10,18 @@ router.post('/login', async (req, res) => {
 
 try {
       const user = await User.findOne({email});
-
       //not found 
       if(!user){
         res.status(404).json('User not found!');
       }
       if(user){
-
-        if(password == user.password){
-
-            const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, { expiresIn: '1h' });
-            res.json({ token });
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if(!isPasswordValid){
+          res.status(401).json('Invalid password!');
+        }
+        else{
+          const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, { expiresIn: '1h' });
+          res.json({ token });
         }
       }
     

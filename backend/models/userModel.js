@@ -35,7 +35,6 @@ const UserSchema = new mongoose.Schema({
     data: Buffer,
     contentType: String,
   },
-  preferences: [{ type: String }],
 });
 
 const User =   mongoose.model('User', UserSchema);
