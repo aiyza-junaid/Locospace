@@ -7,13 +7,15 @@ import CardCarouselComp from '../components/LandingCardCarouselComp';
 import Footer from '../components/LandingFooter';
 
 const LandingPage: React.FC = () => {
- 
+  
   return (
     <div>
+
       <CustomNavBar />
       <LandingPageComp/>
       <CardCarouselComp />
       <Footer/>
+      
     </div>
   );
 };
