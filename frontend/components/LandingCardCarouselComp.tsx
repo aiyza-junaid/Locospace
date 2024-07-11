@@ -56,6 +56,16 @@ const CardCarouselComp: React.FC = () => {
 
   console.log(data)
 
+  // Function to format price
+  const formatPrice = (price: number) => {
+    // Example conversion logic
+    if (price >= 10000000) { // If price is 10 million or more
+      return `${(price / 10000000).toFixed(2)} crore`; // Convert to crore
+    } else {
+      return `Rs. ${price.toLocaleString()}`; // Default format with commas for thousands
+    }
+  };
+
   return (
     <div className="carousel-wrapper">
       <h2 className="heading">Explore Available Listings</h2>
@@ -78,7 +88,7 @@ const CardCarouselComp: React.FC = () => {
             <Card.Body>
               <Card.Title><Row className="mb-2">
                 <Col><span>{item.type}</span></Col>
-                <Col className="text-right"><span>Rs. {item.price}</span></Col>
+                <Col className="text-right"><span>{formatPrice(item.price)}</span></Col>
               </Row></Card.Title>
               <Row className="mb-2">
                 <Col><FontAwesomeIcon icon={faBed} /> {item.bedrooms}</Col>
