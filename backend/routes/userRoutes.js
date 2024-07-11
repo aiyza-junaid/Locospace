@@ -11,22 +11,19 @@ router.post ('/signup', async (req, res) => {
   
       const hashedPassword = await bcrypt.hash(password, 10);
   
-      console.log(hashedPassword);
-  
       // CREATE A NEW USER AND SAVE TO DB
       const newUser = await User.create({
-        data: {
-          username,
-          password: hashedPassword,
-          email,
-          phoneno,
-          name,
-          lat,
-          longi,
-        },
+        "data": {
+                "username": username,
+                "password": hashedPassword,
+                "email": email,
+                "phoneno": phoneno,
+                "name": name,
+                "lat": lat,
+                "longi": longi,
+            },
       });
   
-      console.log(newUser);
   
       res.status(201).json({ message: "User created successfully" });
     } catch (err) {
