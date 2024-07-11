@@ -6,7 +6,6 @@ import Link from 'next/link'; // Import Link from Next.js for client-side naviga
 import useAuth from '../../authStore';
 import {useRouter} from 'next/navigation';
 
-import { IoEyeOff } from "react-icons/io5";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -52,25 +51,28 @@ const Login: React.FC = () => {
       </Link>
 
       <div className="loginBox">
-        <h2 >Sign in</h2>
-        <form>
-          <div className="inputBox">
-            <input type="text" required />
-            <label>Email</label>
-          </div>
-          <div className="inputBox">
-            <input type="password" required />
-            <label>Password</label>
-          </div>
-          <button type="submit">Login</button>
-          <div className="accountPrompt">
-            <span>Don't have an account? </span>
-            <Link href="/Signup">
-              <div className="createAccountLink">Create new account</div>
-            </Link>
-          </div>
-        </form>
-      
+        <h2>Sign in</h2> 
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            handleLogin();
+          }}>
+            <div className="inputBox">
+              <input type="text" required value={email} onChange={(e) => setEmail(e.target.value)} />
+              <label>Email</label>
+            </div>
+            <div className="inputBox">
+              <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
+              <label>Password</label>
+            </div>
+            <button type="submit">Login</button> 
+            <div className="accountPrompt">
+              <span>Don't have an account? </span>
+              <Link href="/Signup">
+                <div className="createAccountLink">Create new account</div>
+              </Link>
+            </div>
+          </form>
+        
       </div>
     </div>
   );

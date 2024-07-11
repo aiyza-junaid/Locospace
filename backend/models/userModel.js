@@ -31,11 +31,16 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  lat: {
+    type: String
+  },
+  longi: {
+    type: String
+  },
   profilePicture: {
     data: Buffer,
     contentType: String,
   },
-  preferences: [{ type: String }],
 });
 
 const User =   mongoose.model('User', UserSchema);

@@ -1,16 +1,36 @@
 const User = require('../models/userModel');
 const express = require('express');
 const router = express.Router();
+const bcrypt = require("bcrypt") ;
 
-router.post('/users', async (req, res) => {
+router.post ('/signup', async (req, res) => {
+    const { username, password , name ,email,community, address, profilePicture, contact , lat ,longi } = req.body;
+   
     try {
-      const newUser = await User.create(req.body);
-      console.log('User created:', newUser);
-      res.status(201).json(newUser);
-    } catch (error) {
-      console.error('Error creating user:', error);
-      res.status(500).json({ error: 'Failed to create user' });
+      // HASH THE PASSWORD
+  
+      const hashedPassword = await bcrypt.hash(password, 10);
+  
+      // CREATE A NEW USER AND SAVE TO DB
+      const newUser = new User({
+        username,
+        password: hashedPassword,
+        email,
+        contact,
+        address,
+        community,
+        profilePicture,
+        name,
+        lat,    
+        longi   
+      });
+  
+      await newUser.save();
+      res.status(201).json({ message: "User created successfully" });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json({ message: "Failed to create user!" });
     }
-});
+  });
 
 module.exports = router;
