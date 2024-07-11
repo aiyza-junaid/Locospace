@@ -4,7 +4,7 @@ const router = express.Router();
 import bcrypt from "bcrypt";
 
 router.post ('/signup', async (req, res) => {
-    const { username, password , fname ,lname ,email,phoneno , lat ,longi } = req.body;
+    const { username, password , name ,email,phoneno , lat ,longi } = req.body;
     try {
       // HASH THE PASSWORD
   
@@ -18,15 +18,10 @@ router.post ('/signup', async (req, res) => {
           username,
           password: hashedPassword,
           email,
-          name: {
-            first: fname,
-            last: lname,
-          },
-          phone: phoneno,
-          location: {
-            lat,
-            long: longi,
-          },
+          phoneno,
+          name,
+          lat,
+          longi,
         },
       });
   
