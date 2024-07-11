@@ -5,6 +5,7 @@ import bcrypt from "bcrypt";
 
 router.post ('/signup', async (req, res) => {
     const { username, password , name ,email,phoneno , lat ,longi } = req.body;
+   
     try {
       // HASH THE PASSWORD
   
@@ -33,4 +34,5 @@ router.post ('/signup', async (req, res) => {
       res.status(500).json({ message: "Failed to create user!" });
     }
   });
+
 module.exports = router;
