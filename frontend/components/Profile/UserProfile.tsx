@@ -1,7 +1,16 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import '../../styles/profile.css'; // Make sure to adjust the path based on your folder structure
 
 const UserProfile: React.FC = () => {
+
+    const[username, setUserName] = useState();
+    const[password, setPassword] = useState();
+    const[Name, setName] = useState();
+    const[Email, setEmail] = useState();
+    
+    
+
   return (
     
     <div className="profile-container">
@@ -10,8 +19,12 @@ const UserProfile: React.FC = () => {
       </div>
       <div className="profile-details">
         <div className="detail-box">
-          <label>Name:</label>
-          <p>Osaed Jafar</p>
+            
+          <label> Name: </label>
+          <p>{username}</p>
+
+          <button className='edit-button'>Edit Profile</button>
+
         </div>
         <div className="detail-box">
           <label>Email:</label>

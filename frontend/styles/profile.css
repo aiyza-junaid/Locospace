@@ -76,7 +76,25 @@
     margin-left: 40px;
     margin-top: 20px;
   }
-  
+  .edit-button {
+    position: absolute;
+    top: 180px;
+    right: 80px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  .edit-button:hover {
+    size: 110%;
+    border-radius: 5px;
+    background-color: #031931;
+    color: white;
+    cursor: pointer;
+    transition-delay: 0.5s;
+  }
   .toggle-button {
     padding: 10px 20px;
     margin: 0 2px;
