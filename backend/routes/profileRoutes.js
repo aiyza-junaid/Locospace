@@ -11,7 +11,7 @@ const storage = multer.memoryStorage(); // Store the image in memory
 const upload = multer({ storage: storage });
 
 
-router.get('/myprofile', authenticateToken, async (req, res) => {
+router.get('/myprofile', authenticateToken, async (req, res) => {  //async (request, response)
 
     const id = req.user.id;
 
