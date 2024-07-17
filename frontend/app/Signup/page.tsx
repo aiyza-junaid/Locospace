@@ -18,9 +18,10 @@ const Signup: React.FC = () => {
     const [address, setAddress] = useState('');
     const [contact, setContact] = useState('');
     const [error, setError] = useState('');
+    const router = useRouter();
 
     const handleSignup = async () => {
-        const router = useRouter();
+        
         // Compare passwords
         if (password !== confirmPassword) {
             setError('Passwords do not match');
