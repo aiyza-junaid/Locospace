@@ -1,4 +1,4 @@
-// frontend/app/Login/page.tsx
+// frontend/app/signup/page.tsx
 
 'use client'
 
@@ -6,9 +6,6 @@ import React from 'react';
 import '../../styles/signup.css'; // Adjust the path based on your folder structure
 import Link from 'next/link'; // Import Link from Next.js for client-side navigation
 import Dropdown from '../../components/Dropdown'; // Corrected path
-import useAuth from '../../authStore';
-import {useRouter} from 'next/navigation';
-import { height } from '@fortawesome/free-brands-svg-icons/fa42Group';
 
 const Signup: React.FC = () => {
     const options = ["", 'Community 1', 'Community 2', 'Community 3'];
@@ -20,64 +17,60 @@ const Signup: React.FC = () => {
     return (
         <div className="background">
             <Link href="/">
-                <div className="homeButton">Locospace</div>
-            </Link>
-
-            <Link href="/">
                 <img src="Logo.png" alt="Logo" className="logo" />
             </Link>
-
+            <Link href="/">
+                <div className="homeButton">Locospace</div>
+            </Link>
             <div className="signUpBox">
                 <h2 className="signUpHeading">Sign up</h2>
                 <p>Create an account</p>
-                <form>
+                <div className="formContainer">
                     <div className="leftInputs">
                         <div className="inputBox">
-                            <input type="text" name="username" required />
-                            <label>Username</label>
+                            <input type="text" name="name" required />
+                            <label>Name</label>
                         </div>
                         <div className="inputBox">
                             <input type="password" name="password" required />
                             <label>Password</label>
                         </div>
                         <div className="inputBox">
-                            <input type="text" name="name" required />
-                            <label>Name</label>
+                            <Dropdown options={options} onSelect={handleCommunitySelect} />
+                            <label>Community</label>
                         </div>
-                        <div className="inputBox">
-                            <input type="text" name="address" required style={{height:'60px', margin: '0px'}} />
-                            <label>Address</label>
+                        <div className="inputBox house">
+                            <input type="text" name="house_no" required />
+                            <label>House No.</label>
                         </div>
                     </div>
-
                     <div className="rightInputs">
                         <div className="inputBox">
                             <input type="email" name="email" required />
                             <label>Email</label>
                         </div>
                         <div className="inputBox">
-                            <input type="text" name="confirm_password" required />
+                            <input type="password" name="confirm_password" required />
                             <label>Confirm Password</label>
                         </div>
                         <div className="inputBox">
-                            <input type="text" name="contact" required />
-                            <label>Contact</label>
+                            <input type="text" name="city" required />
+                            <label>City</label>
                         </div>
-                        <div className="locationinputBox">
-                            <label>Location</label>
-                            <button> Locate on Map </button>
+                        <div className="inputBox street">
+                            <input type="text" name="street_no" required />
+                            <label>Street No.</label>
                         </div>
                     </div>
-                    <button type="submit" style={{margin:'0px'}}>Sign up</button>
-                    <div className="accountPrompt">
-                        <span>Already have an account? 
-                            <Link href="/Login">
+                </div>
+                <button type="submit" className="signUpButton">Sign up</button>
+                <div className="accountPrompt">
+                    <span>Already have an account? 
+                        <Link href="/Login">
                             <div className="createAccountLink">Sign in</div>
                         </Link> 
-                        </span>
-                        
-                    </div>
-                </form>
+                    </span>
+                </div>
             </div>
         </div>
     );
