@@ -1,69 +1,45 @@
 'use client'
-import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 
 interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  address: string;
-  propertyTitle: string;
-  propertyType: string;
-  propertyDescription: string;
   location: string;
+  purpose: string;
   price: string;
   areaSize: string;
   bedrooms: string;
   bathrooms: string;
+  kitchen: string;
+  propertyDescription: string;
   propertyFeatures: {
-    busyOrPeaceful: boolean;
-    greenOrCommercial: boolean;
-    supportiveOrResistant: boolean;
+    busy: boolean;
+    peaceful: boolean;
+    greenArea: boolean;
+    commercialArea: boolean;
+    supportiveCommunity: boolean;
+    resistantCommunity: boolean;
   };
 }
 
 const SellerForm: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    phone: '',
-    address: '',
-    propertyTitle: '',
-    propertyType: '',
-    propertyDescription: '',
     location: '',
+    purpose: '',
     price: '',
     areaSize: '',
     bedrooms: '',
     bathrooms: '',
+    kitchen: '',
+    propertyDescription: '',
     propertyFeatures: {
-      busyOrPeaceful: false,
-      greenOrCommercial: false,
-      supportiveOrResistant: false,
+      busy: false,
+      peaceful: false,
+      greenArea: false,
+      commercialArea: false,
+      supportiveCommunity: false,
+      resistantCommunity: false,
     },
   });
-
-  useEffect(() => {
-    // Reset form data when component mounts or formData dependencies change
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      address: '',
-      propertyTitle: '',
-      propertyType: '',
-      propertyDescription: '',
-      location: '',
-      price: '',
-      areaSize: '',
-      bedrooms: '',
-      bathrooms: '',
-      propertyFeatures: {
-        busyOrPeaceful: false,
-        greenOrCommercial: false,
-        supportiveOrResistant: false,
-      },
-    });
-  }, []);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type, checked } = e.target;
@@ -91,92 +67,213 @@ const SellerForm: React.FC = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <Container className="mt-5">
       <h1 className="text-center mb-4">Seller Form</h1>
-      <form onSubmit={handleSubmit}>
-        <h2>Seller Information</h2>
-        {/* Seller information inputs */}
-        <div className="form-group">
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="form-control"
-            required
-          />
-        </div>
-        {/* Other seller inputs like email, phone, address */}
-        {/* Property details inputs */}
-        <div className="form-group">
-          <label htmlFor="propertyTitle">Property Title:</label>
-          <input
-            type="text"
-            id="propertyTitle"
-            name="propertyTitle"
-            value={formData.propertyTitle}
-            onChange={handleChange}
-            className="form-control"
-            required
-          />
-        </div>
-        {/* Other property details inputs like propertyType, location, price */}
-        <h2>Property Description</h2>
-        <div className="form-group">
-          <label htmlFor="propertyDescription">Property Description:</label>
-          <textarea
-            id="propertyDescription"
+      <Form onSubmit={handleSubmit}>
+        <Row className="mb-3 align-items-center">
+          <Col md={9}>
+            <Form.Group>
+              <h4>Purpose</h4>
+              <div className="d-flex mt-3">
+                <Button
+                  className='me-5 rounded-5 px-3'
+                  variant={formData.purpose === 'sell' ? 'primary' : 'outline-primary'}
+                  onClick={() => setFormData(prev => ({ ...prev, purpose: 'sell' }))}
+                >
+                  Sell
+                </Button>
+                <Button
+                  className='ms-2 rounded-5 px-3'
+                  variant={formData.purpose === 'rent' ? 'primary' : 'outline-primary'}
+                  onClick={() => setFormData(prev => ({ ...prev, purpose: 'rent' }))}
+                >
+                  Rent
+                </Button>
+              </div>
+            </Form.Group>
+          </Col>
+          <Col md={3} className="p-3 border rounded-circle shadow-sm">
+            <Button variant="link">
+              <img src="/home-icon.png" alt="Icon" />
+            </Button>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col md={12}>
+            <Form.Group>
+              <h4>Location</h4>
+              <div className="d-flex mt-3 "></div>
+              <Form.Control className='w-50 mb-4'
+                type="text"
+                name="location"
+                value={formData.location}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col xs={4}>
+            <Form.Group>
+              <h4>Area Size</h4>
+              <div className="d-flex mt-3"></div>
+              <Form.Control
+                type="text"
+                name="areaSize"
+                value={formData.areaSize}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+          </Col>
+          <Col xs={4}>
+            <Form.Group>
+              <h4>Price</h4>
+              <div className="d-flex mt-3"></div>
+              <Form.Control
+                type="text"
+                name="price"
+                value={formData.price}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+
+        <Form.Group>
+        <div className="d-flex mt-3"></div>
+          <h3>Property Description</h3>
+          <Form.Control className='w-50'
+            as="textarea"
             name="propertyDescription"
             value={formData.propertyDescription}
             onChange={handleChange}
-            className="form-control"
             required
           />
-        </div>
-        {/* Property features checkboxes */}
-        <div className="form-group">
-          <label>Property Features:</label>
-          <div className="form-check">
-            <input
-              type="checkbox"
-              id="busyOrPeaceful"
-              name="busyOrPeaceful"
-              checked={formData.propertyFeatures.busyOrPeaceful}
-              onChange={handleChange}
-              className="form-check-input"
-            />
-            <label htmlFor="busyOrPeaceful" className="form-check-label">Busy or Peaceful Area</label>
-          </div>
-          <div className="form-check">
-            <input
-              type="checkbox"
-              id="greenOrCommercial"
-              name="greenOrCommercial"
-              checked={formData.propertyFeatures.greenOrCommercial}
-              onChange={handleChange}
-              className="form-check-input"
-            />
-            <label htmlFor="greenOrCommercial" className="form-check-label">Green or Commercial Area</label>
-          </div>
-          <div className="form-check">
-            <input
-              type="checkbox"
-              id="supportiveOrResistant"
-              name="supportiveOrResistant"
-              checked={formData.propertyFeatures.supportiveOrResistant}
-              onChange={handleChange}
-              className="form-check-input"
-            />
-            <label htmlFor="supportiveOrResistant" className="form-check-label">Supportive or Resistant Community</label>
-          </div>
-        </div>
-        {/* Other property details inputs like areaSize, bedrooms, bathrooms */}
-        {/* Listing submission button */}
-        <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
-    </div>
+        </Form.Group>
+
+        <Row>
+          <Col md={4}>
+            <Form.Group>
+              <Form.Label>Bedrooms:</Form.Label>
+              <Form.Control
+                type="text"
+                name="bedrooms"
+                value={formData.bedrooms}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+          </Col>
+          <Col md={4}>
+            <Form.Group>
+              <Form.Label>Bathrooms:</Form.Label>
+              <Form.Control
+                type="text"
+                name="bathrooms"
+                value={formData.bathrooms}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+          </Col>
+          <Col md={4}>
+            <Form.Group>
+              <Form.Label>Kitchen:</Form.Label>
+              <Form.Control
+                type="text"
+                name="kitchen"
+                value={formData.kitchen}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+
+        <Form.Group>
+          <Form.Label>Property Features:</Form.Label>
+          <Row>
+            <Col sm={6}>
+              <Form.Check
+                type="checkbox"
+                id="busy"
+                label="Busy Area"
+                checked={formData.propertyFeatures.busy}
+                onChange={handleChange}
+              />
+            </Col>
+            <Col sm={6}>
+              <Form.Check
+                type="checkbox"
+                id="peaceful"
+                label="Peaceful Area"
+                checked={formData.propertyFeatures.peaceful}
+                onChange={handleChange}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col sm={6}>
+              <Form.Check
+                type="checkbox"
+                id="greenArea"
+                label="Green Area"
+                checked={formData.propertyFeatures.greenArea}
+                onChange={handleChange}
+              />
+            </Col>
+            <Col sm={6}>
+              <Form.Check
+                type="checkbox"
+                id="commercialArea"
+                label="Commercial Area"
+                checked={formData.propertyFeatures.commercialArea}
+                onChange={handleChange}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col sm={6}>
+              <Form.Check
+                type="checkbox"
+                id="supportiveCommunity"
+                label="Supportive Community"
+                checked={formData.propertyFeatures.supportiveCommunity}
+                onChange={handleChange}
+              />
+            </Col>
+            <Col sm={6}>
+              <Form.Check
+                type="checkbox"
+                id="resistantCommunity"
+                label="Resistant Community"
+                checked={formData.propertyFeatures.resistantCommunity}
+                onChange={handleChange}
+              />
+            </Col>
+          </Row>
+        </Form.Group>
+
+        <Row className="mb-3">
+          <Col md={6}>
+            <Button 
+            type="submit" variant="primary" className='me-5 rounded-5 px-3'>
+              publish
+            </Button>
+          </Col>
+          <Col md={6}>
+          <Button variant="primary" className='me-5 rounded-5 px-3'>
+             Publish
+            </Button>
+          </Col>
+        </Row>
+      </Form>
+    </Container>
   );
 };
 
