@@ -1,186 +1,201 @@
-/* frontend/styles/signup.css */
+/* Background styles */
 .background {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: url('../images/DetailedLogo.png') no-repeat; /* Ensure no-repeat to prevent repetition */
-    background-position: 140% 60%; /* Example: Adjust position coordinates */
-    background-size: auto 150%; /* Adjust size to maintain aspect ratio and fill height */
-  }
-  
-  .logo {
-    position: absolute;
-    top: 10px; /* Adjust top position as needed */
-    left: 10px; /* Adjust left position as needed */
-    height: 80px; /* Adjust size as needed */
-    margin-right: 10px;
-  }
-  
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh;
+  background: url('../images/DetailedLogo.png') no-repeat;
+  background-position: right; /* Move background image to the right */
+  background-size: auto 120%;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #007bff; /* Blue background color */
+  color: #fff; /* White text color */
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.signUpBox {
+  z-index: 0;
+  width: 90%;
+  max-width: 35.5rem;
+  height: auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 1);
+  text-align: center;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  margin: 5.5rem 0 auto; /* Horizontally center the box */
+}
+
+.leftInputs{
+  height: fit-content;
+}
+
+/* Adjusting the top margin for smaller screens */
+@media (max-width: 768px) {
   .signUpBox {
-    height: 550px; /* Adjusted height to accommodate more inputs */
-    width: 640px;
-    padding: 40px;
-    position: relative;
-    background: rgba(255, 255, 255, 1); /* cool grey with transparency */
-    text-align: center;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
+    width: 90%;
+    padding: 20px;
+    margin-top: 150px; /* Adjust margin for smaller screens */
   }
-  .signUpHeading{
-    margin-bottom: .5rem;
+}
+
+/* Additional styles */
+.signUpHeading {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.leftInputs, .rightInputs {
+  width: 48%;
+}
+
+.inputBox {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.inputBox input, .inputBox select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  background: #f9f9f9;
+  box-sizing: border-box;
+}
+
+.inputBox label {
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  font-size: 14px;
+  color: #333;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.inputBox input:focus ~ label,
+.inputBox input:valid ~ label {
+  top: -30px;
+  font-size: 12px;
+  color: #03a9f4;
+}
+
+button.map {
+  width: 100%;
+  height: 3rem;
+  margin-top: 1rem;
+  background: #3f473b;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+button.signUpButton {
+  width: 100%;
+  height: 40px;
+  margin-top: 1rem;
+  background: #03a9f4;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+button.signUpButton:hover {
+  background: #0288d1;
+}
+
+.homeButton {
+  position: absolute;
+  top: 20px;
+  left: 100px;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  background-color: #fff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.homeButton:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.accountPrompt {
+  font-size: 14px;
+  color: #333;
+  margin-top: 1rem;
+}
+
+.createAccountLink {
+  color: #03a9f4;
+  text-decoration: none;
+}
+
+.createAccountLink:hover {
+  text-decoration: underline;
+  color: #0c5070;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .background {
+    background-size: contain;
+    background-position: right;
   }
-  .signUpBox p{
-    margin-bottom: 2.5rem;
+
+  .signUpBox {
+    width: 90%;
+    padding: 20px;
+    margin-top: 18rem; /* Adjust margin for smaller screens */
   }
-  .leftInputs {
-    width: 45%; /* Adjusted width for left column */
-    float: left; /* Ensures left alignment */
+
+  .formContainer {
+    flex-direction: column;
   }
-  
-  .rightInputs {
-    width: 45%; /* Adjusted width for right column */
-    float: right; /* Ensures right alignment */
-    padding-left: 5%; /* Add some spacing between columns */
-  }
-  
-  .inputBox {
-    position: relative;
-    margin-bottom: 30px;
-  }
-  
-  .inputBox input {
+
+
+
+  .leftInputs, .rightInputs {
     width: 100%;
-    height: 2rem;
-    padding: 10px;
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 10px; /* Adjusted for spacing */
-    border: 1px solid #333;
-    border-radius: 5px;
-    outline: none;
-    background: transparent;
-    box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
   }
-  
-  .inputBox label {
-    position: absolute;
-    top: -37px;
-    left: 0px;
-    font: "Gotham";
-    padding: 10px 0;
-    font-size: 16px;
-    color: #333;
-    pointer-events: none;
-    transition: 0.5s;
-  }
-  
-  .inputBox input:focus ~ label,
-  .inputBox input:valid ~ label {
-    font: "Avenir-bold";
-    top: -36px;
-    left: 0;
-    color: #112630;
-    font-size: 17px;
-  }
+
   .inputBox {
-    position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
-  .street{
-    margin-bottom: 0.1rem !important;
-    margin-top: 0.1rem !important;
-  }
-  .house{
-    margin-bottom: 0.1rem !important;
-  }
-  /* frontend/components/Dropdown.module.css */
 
-  
   button {
-    width: 180px;
-    height: 50px;
-    margin-top: 1rem; /* Adjusted for better spacing */
-    font-family: 'Gotham';
-    background: #03a9f4;
-    border: none;
-    padding: 0px;
-    cursor: pointer;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 18px;
-    transition: 0.5s;
+    width: 100%;
+    margin-top: 1rem;
   }
-  
-  button:hover {
-    background: #05324a;
-    padding: 9px;
-  }
-  
+
   .homeButton {
-    position: absolute;
-    font-family: 'Gotham';
-    top: 25px;
-    left: 80px;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    font-size: 16px;
-    background-color: #fff;
-    border: 0px solid #333;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-  }
-  
-  .homeButton:hover {
-    background-color: #333;
-    color: #fff;
-  }
-  
-  .accountPrompt {
+    top: 15px;
+    left: 40px;
     font-size: 14px;
-    color: #333;
-
   }
-  
-  .createAccountLink {
-    color: #03a9f4;
-    text-decoration: none;
-  }
-  
-  .createAccountLink:hover {
-    text-decoration: underline;
-    color: #0c5070;
-  }
-  .locationinputBox button{ 
-    width: 180px;
-    height: 50px;
-    color: black;
-    font: "Gotham";
-    font-size: medium;
-    box-sizing: border-box;
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_rbrCDbss3kRmbeiZoslsXiTdENOYg9iXCA&s) ;
-  }
-  .locationinputBox button:hover{ 
-    background: grey;
-    padding: 9px;
-  }
-  .locationinputBox{
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content:center;
-    padding-bottom: 24px;
-  }
-
-  .locationinputBox label{
-    position: absolute;
-    top: -37px;
-    left: 0px;
-    font: "Gotham";
-    padding: 10px 0;
-    font-size: 16px;
-    color: #333;
-    pointer-events: none;
-    transition: 0.5s;
-  }
+}

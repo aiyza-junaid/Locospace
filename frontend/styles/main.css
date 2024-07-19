@@ -9,10 +9,21 @@ body {
   box-sizing: border-box;
 }
 
+.navbar{
+  background-color: rgb(245, 245, 245);
+}
 .navbar-brand-custom {
   font-size: 2.5rem;
   font-weight: bold;
   text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.navbar-toggler {
+  width: 40px; /* adjust the width of the toggle button */
+  height: 40px; /* adjust the height of the toggle button */
+  padding: 0px; /* add some padding to the toggle button */
+  font-size: 18px; /* adjust the font size of the toggle button */
 }
 
 .profile {
@@ -28,6 +39,13 @@ body {
 }
 
 .btn-custom {
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  margin-inline: 10px;
+}
+
+.btn-profile {
   padding: 0.25rem 0.75rem;
   border-radius: 50px;
   font-size: 0.875rem;
@@ -51,6 +69,7 @@ body {
   align-items: center;
   height: 70vh;
   margin-bottom: 10%;
+  
 }
 
 .left-half {
@@ -238,5 +257,10 @@ body {
 
   .carousel-wrapper {
     margin-top: 2rem; 
+  }
+
+  .toggler {
+    /* background-color: #333; */
+    margin-top: 2rem;
   }
 }

@@ -14,8 +14,10 @@ try {
       if(!user){
         res.status(404).json('User not found!');
       }
+      console.log(password, user.password)
       if(user){
         const isPasswordValid = await bcrypt.compare(password, user.password);
+        console.log(isPasswordValid)
         if(!isPasswordValid){
           res.status(401).json('Invalid password!');
         }

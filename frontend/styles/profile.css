@@ -1,34 +1,46 @@
 .profile-container {
     display: flex;
+    flex-direction: row;
     align-items: center;
     border: 1px solid #a3a3a3;
     border-radius: 10px;
     padding: 20px;
-    width: 1200px;
+    width: 80%;
     height: 400px;
     margin: auto;
     box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
   }
 
-  .head{
+  .profile-header {
     display: flex;
-    font-family: 'Gotham';
-    margin-top: 25px;
-    margin-left: 60px;
-    font-weight: bold;
-    font-size: 30px;
-
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
   }
   
+  .profile-header h2 {
+    margin-left: 10%;
+  }
+  
+  .header-line {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #a3a3a3 ;
+    margin-left: 10px;
+  }
+
   .profile-picture {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 20px;
+    position: relative;
+    width: 270px;
+    height: 270px;
   }
   
-  .profile-img {
+  .profile-img, .profile-placeholder-icon {
     width: 270px;
     height: 270px;
     border-radius: 60%;
@@ -36,20 +48,45 @@
     border: 2px solid #ddd;
   }
   
+  .profile-placeholder-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 150px;
+    color: #ddd;
+    background-color: #f0f0f0;
+  }
+  
+  
   .profile-details {
-    flex: 2;
+    flex: 3;
     display: flex;
     flex-direction: column;
     gap: 0px;
   }
+
+  .edit-icon{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: rgb(170, 170, 170);
+
+  }
+
+  .edit-icon:hover{
+    cursor: pointer;
+  }
   
   .detail-box {
-    background-color: #f9f9f9;
+    background-color: white;
     padding: 25px;
     height: 132px;
-    width: 800px;
-    border: 1px solid #ddd;
-    border-radius: 7px;
+    width: 96%;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-top-right-radius: 7px; 
+    border-bottom-right-radius: 7px;
     margin-left: 39px;
     margin-right: -19px;
     margin-top: 0px;
@@ -62,6 +99,33 @@
     margin-right: 10px;
   }
   
+  .head {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .edit-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  .edit-button:hover {
+    color: #007bff;
+  }
+
+  
+  .content-container {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
   
   
   .header {
@@ -73,7 +137,7 @@
   .toggle-container {
     display: flex;
     justify-content: left;
-    margin-left: 40px;
+    margin-left: 10%;
     margin-top: 20px;
   }
   .edit-button {
@@ -110,7 +174,9 @@
   .toggle-button:hover {
     /* background-color: #007bff; */
     color: rgb(8, 0, 255);
-    border-color: #007bff;
+    border: none;
+    border-bottom: 2px solid #007bff;
+    border-radius: 0px;
   }
   
   .content-container {
@@ -124,9 +190,84 @@
     border: 1px solid #ccc;
     border-radius: 10px;
     margin: 20px auto;
-    width: 1200px;
+    width: 83%;
     height: 300px;
     margin-bottom: 150px;
     background-color: #f9f9f9;
   }
+
+  .modal-header{
+    background: linear-gradient(180deg, rgba(139, 139, 245, 0.8) 0%, rgba(135, 206, 235, 0.2) 100%);
+    color: white;
+    border-bottom: none;
+  }
+
+  .modal-content{
+    border: none;
+  }
+
+  .profile-icon{
+    height: 6%;
+    width: 6%;
+    margin-right: 1%;
+  }
+
+  .save-button{
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    margin-inline: 10px;
+    background-color: rgba(139, 139, 245, 0.8);
+    border: none;
+  }
+  .save-button:hover{
+   
+    background-color: rgba(110, 110, 237, 0.8);
+  }
+
+  .custom-modal .modal-dialog {
+    max-width: 700px; 
+  }
+  
+  .custom-modal .modal-content {
+    width: 100%; 
+  }
+  
+  @media (max-width: 992px) {
+    .profile-container {
+      flex-direction: column;
+      height: auto;
+      width: auto;
+      padding: 10px;
+    }
+
+    .detail-box{
+      height: auto;
+      width: 12rem;
+      margin: 15%;
+      padding: 20px;
+    }
+
+    .listings-content{
+      height: 20rem;
+      width: 100%;
+      margin-bottom: 5%;
+    }
+
+    .threads-content{
+      height: 20rem;
+      width: 100%;
+      margin-bottom: 5%;
+    }
+
+    .profile-details{
+      justify-content: center;
+      align-items: center;
+    }
+    
+  }
+
+
+ 
+  
   
