@@ -14,13 +14,15 @@ try {
       if(!user){
         res.status(404).json('User not found!');
       }
+      console.log(password, user.password)
       if(user){
         const isPasswordValid = await bcrypt.compare(password, user.password);
+        console.log(isPasswordValid)
         if(!isPasswordValid){
           res.status(401).json('Invalid password!');
         }
         else{
-          // Cookies.set("loggedIn", true)
+          Cookies.set("loggedIn", true)
           const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, { expiresIn: '1h' });
           res.json({ token });
         }
