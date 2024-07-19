@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
-import '../../styles/profile.css';
+import '../../styles/main.css';
 
 const SignupNavbar: React.FC = () => {
   return (
     <Navbar expand="lg" style={{ backgroundColor: 'white' }}>
-      <Container fluid>
+      <Container fluid className='navbar'>
         <Link className="navbar-brand-custom" href="/" passHref>
           <Navbar.Brand>
             <img src="logo.png" width="60" height="60" className="d-inline-block align-text-center" alt="Logo" />
