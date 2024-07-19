@@ -1,25 +1,35 @@
 /* frontend/styles/signup.css */
+
+/* Background styles */
 .background {
-  display: flex;
+  display: absolute;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background: url('../images/DetailedLogo.png') no-repeat;
-  background-position: 140% 60%;
-  background-size: auto 150%;
+  background-position: right; /* Example: Move background image 200px to the right */
+  background-size: auto 120%;
 }
 
-.logo {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  height: 80px;
-  margin-right: 10px;
+
+/* Navbar styles */
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
+/* Signup box styles */
 .signUpBox {
+  width: 90%;
+  max-width: 35.5rem;
   height: auto;
-  width: 640px;
+  margin: 100px auto 0; /* Top margin adjusted to 100px, auto for horizontal centering */
   padding: 40px;
   background: rgba(255, 255, 255, 1);
   text-align: center;
@@ -28,11 +38,8 @@
 }
 
 .signUpHeading {
-  margin-bottom: 0.5rem;
-}
-
-.signUpBox p {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
 }
 
 .formContainer {
@@ -52,8 +59,8 @@
 
 .inputBox input, .inputBox select {
   width: 100%;
-  padding: 8px;
-  font-size: 14px;
+  padding: 10px;
+  font-size: 16px;
   color: #333;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -65,22 +72,33 @@
 .inputBox label {
   position: absolute;
   top: -20px;
-  left: 0;
-  padding: 0 10px;
+  left: 10px;
   font-size: 14px;
   color: #333;
   background: white;
   pointer-events: none;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .inputBox input:focus ~ label,
 .inputBox input:valid ~ label {
   top: -30px;
-  left: 10px;
-  color: #03a9f4;
   font-size: 12px;
+  color: #03a9f4;
 }
+button.map {
+  width: 100%;
+  height: 3rem;
+  margin-top: 1rem;
+  background: #3f473b;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
 
 button.signUpButton {
   width: 100%;
@@ -133,33 +151,43 @@ button.signUpButton:hover {
   color: #0c5070;
 }
 
+
+/* Responsive */
 @media (max-width: 768px) {
+  .background {
+    background-size: contain;
+    background-position: right;
+    
+  }
+
   .signUpBox {
-      width: 90%;
-      height: auto;
-      padding: 20px;
+    width: 90%;
+    padding: 20px;
+    margin-top: 150px; /* Adjust margin for smaller screens */
   }
 
   .formContainer {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   .leftInputs, .rightInputs {
-      width: 100%;
+    width: 100%;
   }
 
   .inputBox {
-      margin-bottom: 20px;
+    margin-bottom: 20px;
   }
 
   button {
-      width: 100%;
-      margin-top: 1rem;
+    width: 100%;
+    margin-top: 1rem;
   }
 
   .homeButton {
-      top: 15px;
-      left: 40px;
-      font-size: 14px;
+    top: 15px;
+    left: 40px;
+    font-size: 14px;
   }
+
+  
 }
