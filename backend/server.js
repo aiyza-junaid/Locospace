@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const UserRoute = require('./routes/userRoutes')
 const LoginRoute = require('./routes/loginRoutes')
 const ProfileRoutes = require('./routes/profileRoutes')
+const listingRoutes = require('./routes/sellerRoutes')
 
 dotenv.config();
 
@@ -30,6 +31,7 @@ if (mongoURI) {
 app.use('/api', UserRoute);
 app.use('/api', LoginRoute);
 app.use('/api', ProfileRoutes);
+app.use('/api/listings', listingRoutes);
 
 
 app.listen(port, () => {

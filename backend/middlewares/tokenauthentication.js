@@ -9,7 +9,6 @@ async function authenticateToken(req, res, next) {
     return res.status(401).json({ message: 'Unauthorized: Missing token' });
   }
 
-  console.log("gurll")
 
   try {
     jwt.verify(token, process.env.SECRET_KEY, async (err, decoded) => {

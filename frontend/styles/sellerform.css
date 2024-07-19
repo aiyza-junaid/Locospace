@@ -1,39 +1,50 @@
 /* sellerform.css */
 .seller-form {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-  
-  .seller-form label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .seller-form input[type="text"],
-  .seller-form input[type="email"],
-  .seller-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
-  }
-  
-  .seller-form button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  .seller-form button:hover {
-    background-color: #45a049;
-  }
-  
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+.seller-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.seller-form input[type="text"],
+.seller-form input[type="email"],
+.seller-form textarea,
+.seller-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+}
+
+.seller-form .short-input {
+  width: 200px; /* Set your desired width */
+}
+
+.seller-form .btn-group {
+  margin-bottom: 15px;
+}
+
+.seller-form button {
+  background-color: #03a9f4;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.seller-form button:hover {
+  background-color: #0288d1;
+}

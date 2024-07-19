@@ -17,7 +17,6 @@ const Login: React.FC = () => {
 
   const handleLogin = async () => {
 
-    
     console.log(email,password)
     try {
       const response = await fetch('http://localhost:5000/api/login', {
@@ -30,7 +29,8 @@ const Login: React.FC = () => {
 
       if (response.ok) {
         const { token } = await response.json();
-        setToken(token);
+        //setToken(token);
+        localStorage.setItem('token',token)
         router.push('/')
       } else {
         console.error('Login failed:', response.statusText);
