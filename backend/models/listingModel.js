@@ -1,59 +1,50 @@
 const mongoose = require('mongoose');
 
 const ListingSchema = new mongoose.Schema({
-
-    listing_id: {
-        type: Number,
-        required: true,
-    },
-
     user_id: { 
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'User'
     },
-
     listing_type: {
         type: String,
         required: true,
     },
-    ListingPicture: {    
+    ListingPictures: [{    
         data: Buffer,
         contentType: String
-    },
-    price:{
+    }],
+    price: {
         type: Number,
         required: true,
     },
-    Description:{
+    Description: {
         type: String,
         required: true,
     },
     location: {
         type: String,
         required: true,
-
     },
-    bedroom:{
+    bedroom: {
         type: Number,
         required: true,
     },
-    bath:{
+    bath: {
         type: Number,
         required: true,
     },
-    kitchen:{
+    kitchen: {
         type: Number,
         required: true,
     },
-    area:{
+    area: {
         type: String,
         required: true,
     },
     preferences: [{ type: String }]
-    
 });
 
-const Listing =   mongoose.model('Listing', ListingSchema);
+const Listing = mongoose.model('Listing', ListingSchema);
 
 module.exports = Listing;

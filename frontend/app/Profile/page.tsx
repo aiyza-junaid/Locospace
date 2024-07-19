@@ -3,9 +3,8 @@
 import React, { useState } from 'react';
 import ProfileBar from '../../components/Profile/ProfileNavbar';
 import UserProfile from '../../components/Profile/UserProfile';
-import '../../styles/profile.css'; // Make sure to adjust the path based on your folder structure
 import Footer from '../../components/LandingFooter';
-
+import '../../styles/profile.css';
 
 const MyProfile: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState<'listings' | 'threads'>('listings');
@@ -13,7 +12,8 @@ const MyProfile: React.FC = () => {
   return (
     <div>
       <ProfileBar />
-      <div className='head'>User Profile</div>
+      <div className='head'>
+      </div>
       <UserProfile />
       <div className="toggle-container">
         <button
@@ -36,9 +36,8 @@ const MyProfile: React.FC = () => {
           <div className="threads-content">Threads Content</div>
         )}
       </div>
-      <Footer/>
+      <Footer />
     </div>
-    
   );
 };
 
