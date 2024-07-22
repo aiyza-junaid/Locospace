@@ -13,7 +13,6 @@ async function authenticateToken(req, res, next) {
       if (err) {
         return res.status(403).json({ message: 'Forbidden: Invalid token' });
       }
-
       try {
         console.log(decoded)
         const user = await User.findById(decoded.userId);

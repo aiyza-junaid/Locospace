@@ -4,11 +4,12 @@ const bcrypt = require("bcrypt") ;
 
 
 exports.signUp = async (req, res) => {
-    const { username, password , name ,email,community, address, profilePicture, contact , lat ,longi } = req.body;
-   
+    const { username, password , name ,email,community, address, profilePicture, contact , location } = req.body;
+    console.log(req.body);
+    console.log( location.latitude, location.longitude);
+    console.log(location)
     try {
-      // HASH THE PASSWORD
-  
+      
       const hashedPassword = await bcrypt.hash(password, 10);
   
       // CREATE A NEW USER AND SAVE TO DB
@@ -21,8 +22,10 @@ exports.signUp = async (req, res) => {
         community,
         profilePicture,
         name,
-        lat,    
-        longi   
+        location: {
+          lat: location.latitude,
+          lng: location.longitude,
+        },
       });
   
       await newUser.save();
