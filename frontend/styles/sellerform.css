@@ -18,8 +18,8 @@
 }
 
 .short-input {
-  width: 50%; /* Adjust as needed */
-  max-width: 150px; /* Adjust for areaSize and price fields */
+  width: 100%; /* Adjust as needed */
+  max-width: 300px; /* Increase for larger areaSize and price fields */
 }
 
 .seller-form .btn {
@@ -27,19 +27,40 @@
   padding: 10px 20px;
 }
 
+/* Custom styles for Sell and Rent buttons */
 .seller-form .btn-primary {
-  background-color: #007bff;
-  border: none;
+  background-color: #007bff; /* Base color */
+  border: none; /* Remove default border */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 
-.seller-form .btn-secondary {
-  background-color: #6c757d;
-  border: none;
+.seller-form .btn-primary:hover {
+  background-color: #0056b3; /* Darker blue for hover */
+  color: #fff; /* White text on hover */
+  border-color: #0056b3; /* Optional: matching border color on hover */
 }
 
-.seller-form .btn-outline-secondary {
-  border: 1px solid #6c757d;
+.seller-form .btn-outline-primary {
+  border-color: #007bff; /* Base border color */
+  color: #007bff; /* Base text color */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
+
+/* Custom hover effect for Sell and Rent buttons */
+.seller-form .btn-custom-hover {
+  background-color: #fff; /* White background by default */
+  border: 2px solid #007bff; /* Blue border by default */
+  color: #007bff; /* Blue text by default */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition */
+}
+
+.seller-form .btn-custom-hover:hover {
+  background-color: #007bff; /* Blue background on hover */
+  color: #fff; /* White text on hover */
+  border-color: #007bff; /* Matching border color on hover */
+}
+
+
 
 .seller-form .rounded-5 {
   border-radius: 50px;
@@ -51,141 +72,91 @@
 }
 
 /* Icon Container */
-.icon-container {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 1px solid #ccc;
+/* Icon Button Styling */
+/* Icon Button Styling */
+.icon-button {
+  border: none !important; /* Force removal of default border */
+  background-color: white !important; /* Force background color to white */
+  width: 100px; /* Adjust size as needed */
+  height: 100px; /* Adjust size as needed */
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  cursor: pointer; /* Pointer cursor to indicate it's clickable */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
+
+.icon-button:hover {
+  background-color: rgba(0, 0, 0, 0.1) !important; /* Light gray background on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important; /* Subtle shadow on hover */
 }
 
 .icon-image {
-  width: 80%;
-  height: 80%;
-  object-fit: cover;
+  width: 50px; /* Adjust size of icon as needed */
+  height: 50px; /* Adjust size of icon as needed */
 }
 
-/* Counter Styles */
-.qty {
-  display: flex;
-  align-items: center;
+.icon-image {
+  width: 50px; /* Adjust size of icon as needed */
+  height: 50px; /* Adjust size of icon as needed */
 }
 
-.qty .count {
-  color: #000;
-  display: inline-block;
-  vertical-align: top;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.5;
-  padding: 0 10px;
-  width: 50px; /* Adjusted width */
-  text-align: center;
-  border: 1px solid #ddd;
-}
 
-.qty .plus, .qty .minus {
-  cursor: pointer;
-  display: inline-block;
-  vertical-align: top;
-  color: white;
-  width: 30px; /* Adjusted width */
-  height: 30px; /* Adjusted height */
-  font: 20px/1 Arial, sans-serif; /* Adjusted font size */
-  text-align: center;
-  border-radius: 50%;
-  padding: 0.4rem;
-}
-
-.qty .plus {
-  background-color: #000;
-}
-
-.qty .minus {
-  background-color: #000;
-}
-
-.qty .plus:hover, .qty .minus:hover {
-  background-color: #717fe0;
-}
-
-.counter-container .btn {
-  font-size: 0.7rem;
-  padding: 0.5rem 1rem;
-  line-height: 1;
-  border-radius: 0.25rem;
-}
-
-/* Features List */
 .features-list {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
 }
 
 .features-list-item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
-.features-list-item label {
-  width: 80px;
-}
-
-/* Environment Section */
-.environment-container {
-  margin-top: 20px;
-}
-
-.environment-heading {
+.qty {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+}
+
+.qty .minus, .qty .plus {
   cursor: pointer;
-  padding: 10px;
-  border: 1px solid #dee2e6;
-  border-radius: 5px;
-  background-color: #f8f9fa;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  user-select: none;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
 }
 
-.environment-heading h4 {
-  margin: 0;
+.qty .minus:hover{
+  background-color: #0056b3; /* Darker blue when hovered */
+  color: white; /* White text when hovered */
 }
 
-.environment-modal-content {
-  padding: 20px;
+.qty .plus:hover {
+  background-color: #0056b3; /* Darker blue when hovered */
+  color: white; /* White text when hovered */
+}
+
+.qty .count {
+  width: 50px;
+  text-align: center;
+  border: 1px solid #ccc;
+  margin: 0 10px;
 }
 
 .environment-option {
-  padding: 10px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .environment-option:hover {
-  background-color: #f8f9fa;
-}
-
-.selected-environment {
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-.badge {
-  display: flex;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  background-color: #007bff;
-  color: white;
-  margin: 0.25rem;
-}
-
-.badge .btn-close {
-  margin-left: 0.5rem;
-  font-size: 0.75rem;
+  background-color: #f0f0f0;
 }
 
 .environment-option.selected {
@@ -193,37 +164,61 @@
   color: white;
 }
 
-/* Modal Buttons */
-.modal-footer .btn {
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
-  line-height: 1;
-  border-radius: 0.25rem;
+.short-input {
+  max-width: 150px;
 }
 
-.modal-footer .btn-secondary {
-  background-color: #6c757d;
-  border: none;
+.buy-image, .key-image {
+  width: 24px;
+  height: 24px;
 }
 
-.modal-footer .btn-primary {
-  background-color: #007bff;
-  border: none;
+.publish-btn, .cancel-btn {
+  width: 100px;
 }
 
-.modal-footer .btn-secondary:hover {
-  background-color: #5a6268;
+/* Custom hover effect for Primary button */
+.qty .minus, .qty .plus:hover {
+  background-color: #0056b3 !important; /* Darker blue when hovered */
+  color: white !important; /* White text when hovered */
+  border-color: #004080 !important; /* Darker blue border when hovered */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition effect */
 }
 
-.modal-footer .btn-primary:hover {
-  background-color: #0056b3;
+.custom-width {
+  width: 300px; /* Adjust the width as needed */
 }
 
-/* Search Bar in Modal */
-.search-bar {
+.wide-input {
+  width: 155%; /* or any specific width you prefer, e.g., 300px */
+}
+
+/* Proof of Ownership Section Styles */
+.proof-of-ownership {
+  margin-top: 20px;
+}
+
+.proof-of-ownership h4 {
   margin-bottom: 10px;
 }
 
-.search-bar .form-control {
-  border-radius: 0.25rem;
+.form-control-file {
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  padding: 10px;
 }
+
+.file-preview {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.file-preview img {
+  max-width: 100px;
+  height: auto;
+  border: 1px solid #ddd;
+  padding: 5px;
+  border-radius: 5px;
+}
+
