@@ -8,8 +8,6 @@ async function authenticateToken(req, res, next) {
   if (!token) {
     return res.status(401).json({ message: 'Unauthorized: Missing token' });
   }
-
-
   try {
     jwt.verify(token, process.env.SECRET_KEY, async (err, decoded) => {
       if (err) {
@@ -22,7 +20,6 @@ async function authenticateToken(req, res, next) {
         if (!user) {
           return res.status(404).json({ message: 'ddUser not found' });
         }
-
         req.user = user;
         console.log(req.user)
         next();
