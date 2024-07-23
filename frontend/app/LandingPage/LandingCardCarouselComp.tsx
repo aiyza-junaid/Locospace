@@ -6,8 +6,8 @@ import { Card, Button, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBed, faBath, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
-import './main.css';
-import placeholder from './placeholder.png';
+import 'main.css';
+import placeholder from 'placeholder.png';
 
 interface CSVData {
   url: string;
