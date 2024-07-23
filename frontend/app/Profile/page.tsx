@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import ProfileBar from '../../components/Profile/ProfileNavbar';
 import UserProfile from '../../components/Profile/UserProfile';
-import Footer from '../../components/LandingFooter';
+import Footer from '../LandingPage/LandingFooter';
 import '../../styles/profile.css';
 
 const MyProfile: React.FC = () => {

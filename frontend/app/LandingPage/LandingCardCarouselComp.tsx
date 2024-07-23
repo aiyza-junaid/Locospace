@@ -5,7 +5,9 @@ import 'react-multi-carousel/lib/styles.css';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBed, faBath, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-import '../styles/main.css';
+import Image from 'next/image';
+import './main.css';
+import placeholder from './placeholder.png';
 
 interface CSVData {
   url: string;
@@ -35,7 +37,7 @@ const responsive = {
   mobile: {
     breakpoint: { max: 464, min: 0 },
     items: 1,
-  }
+  },
 };
 
 const CardCarouselComp: React.FC = () => {
@@ -43,23 +45,24 @@ const CardCarouselComp: React.FC = () => {
 
   useEffect(() => {
     fetch('/zameen.csv')
-      .then(response => response.text())
-      .then(csvText => {
+      .then((response) => response.text())
+      .then((csvText) => {
         Papa.parse<CSVData>(csvText, {
           header: true,
           complete: (results) => {
             setData(results.data);
-          }
+          },
         });
       });
   }, []);
 
-  console.log(data)
+  console.log(data);
 
   // Function to format price
   const formatPrice = (price: number) => {
     // Example conversion logic
-    if (price >= 10000000) { // If price is 10 million or more
+    if (price >= 10000000) {
+      // If price is 10 million or more
       return `${(price / 10000000).toFixed(2)} crore`; // Convert to crore
     } else {
       return `Rs. ${price.toLocaleString()}`; // Default format with commas for thousands
@@ -83,26 +86,43 @@ const CardCarouselComp: React.FC = () => {
         {data.slice(0, 10).map((item, index) => (
           <Card key={index} className="d-block card-custom">
             <div className="image-wrapper">
-              <Card.Img variant="top" src='placeholder.png' alt={`Image of ${item.title}`} />
+              <Image
+                src={placeholder}
+                alt={`Image of ${item.title}`}
+                width={500}
+                height={300}
+                layout="responsive"
+              />
             </div>
             <Card.Body>
-              <Card.Title><Row className="mb-2">
-                <Col><span>{item.type}</span></Col>
-                <Col className="text-right"><span>{formatPrice(item.price)}</span></Col>
-              </Row></Card.Title>
+              <Card.Title>
+                <Row className="mb-2">
+                  <Col>
+                    <span>{item.type}</span>
+                  </Col>
+                  <Col className="text-right">
+                    <span>{formatPrice(item.price)}</span>
+                  </Col>
+                </Row>
+              </Card.Title>
               <Row className="mb-2">
-                <Col><FontAwesomeIcon icon={faBed} /> {item.bedrooms}</Col>
-                <Col className="text-right"><FontAwesomeIcon icon={faBath} /> {item.baths}</Col>
+                <Col>
+                  <FontAwesomeIcon icon={faBed} /> {item.bedrooms}
+                </Col>
+                <Col className="text-right">
+                  <FontAwesomeIcon icon={faBath} /> {item.baths}
+                </Col>
               </Row>
               <hr />
               <Row className="mb-2">
-              <Col>
+                <Col>
                   <FontAwesomeIcon icon={faMapMarkerAlt} className="icon" />
                   <span style={{ marginLeft: '0.5rem' }}>{item.address.split(',')[0]}</span>, {item.city}
-              </Col>
-                
+                </Col>
               </Row>
-              <Button variant="primary" href="#">View</Button>
+              <Button variant="primary" href="#">
+                View
+              </Button>
             </Card.Body>
           </Card>
         ))}

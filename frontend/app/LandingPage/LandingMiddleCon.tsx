@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Container, Row, Col, Button, Form, InputGroup, Dropdown, DropdownButton } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faFilter, faSearch } from '@fortawesome/free-solid-svg-icons';
-import '../styles/main.css';
+import './main.css';
+import landingPageImage from './landingPageImage.svg';
 
 const LandingPageComp: React.FC = () => {
   const [showFilters, setShowFilters] = useState(false);
@@ -38,9 +40,9 @@ const LandingPageComp: React.FC = () => {
                 {showFilters && (
                   <Form.Group controlId="filter" className="mt-3">
                     <Form.Control as="select" multiple>
-                      <option>idk 1</option>
-                      <option>idk 2</option>
-                      <option>idk 3</option>
+                      <option>Busy</option>
+                      <option>Green</option>
+                      <option>Pet friendly</option>
                     </Form.Control>
                   </Form.Group>
                 )}
@@ -49,7 +51,7 @@ const LandingPageComp: React.FC = () => {
           </div>
         </Col>
         <Col className="right-half">
-          <img src="landingPageImage.svg" alt="Landing Image" className="landing-image" />
+          <Image src={landingPageImage}  width="500" height="500" alt="Landing Image" className="landing-image" />
         </Col>
       </Row>
     </Container>

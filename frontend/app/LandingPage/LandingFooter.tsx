@@ -5,7 +5,7 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-dark text-light">
+    <footer className="bg-light text-dark">
       <Container className="py-4">
         <Row>
           <Col md={6}>
@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
           <Col md={3}>
             <h5>Contact</h5>
             <ul className="list-unstyled">
-              <li>Email: idk@gmail.com</li>
+              <li>Email: karigar@gmail.com</li>
               <li>Phone: +1234567890</li>
               <li>
                  <a href="https://www.linkedin.com/company/karigartech/?viewAsMember=true"><FontAwesomeIcon icon={faLinkedin} /></a>
