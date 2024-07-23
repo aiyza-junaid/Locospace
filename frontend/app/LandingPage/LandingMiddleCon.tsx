@@ -3,8 +3,8 @@ import Image from 'next/image';
 import { Container, Row, Col, Button, Form, InputGroup, Dropdown, DropdownButton } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faFilter, faSearch } from '@fortawesome/free-solid-svg-icons';
-import 'main.css';
-import landingPageImage from 'landingPageImage.svg';
+import './main.css';
+import landingPageImage from './landingPageImage.svg';
 
 const LandingPageComp: React.FC = () => {
   const [showFilters, setShowFilters] = useState(false);
